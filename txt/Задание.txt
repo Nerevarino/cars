@@ -9,24 +9,26 @@
 
 
 
-class CarService {
+class Cars {
   data {
     Car cars;
     User users;
+    Session sessions;
   };
 
   interface {
-    self w method construct();
-    
-    visitor w method register();
-    visitor w method logIn();
-    visitor r method listCars();
+    self method construct(); //create.sql
 
-    user w method logOut();
+    visitor method loadInterface()// load-interface.sql
+    visitor method register();//register.sql
+    visitor method logIn();log-in.sql
+    visitor method listCars();list-cars.sql
 
-    admin w method addCar();
-    admin w method deleteCar();
-    client rw method takeCar();
+    user method logOut();
+
+    admin method addCar();
+    admin method deleteCar();
+    client method takeCar();
   };
 
   roles {
@@ -65,4 +67,7 @@ class Role {
   Integer power;
 };
 
-
+class Session {
+  Integer Id;
+  Integer userId;
+};
