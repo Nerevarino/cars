@@ -1,0 +1,68 @@
+Создать web сервис по выдаче автомобилей клиентам.
+Есть администратор: он может залогиниться в систему, добавить автомобиль и его местоположение.
+Есть клиент, он может залогиниться в систему, выбрать автомобиль и его забронировать. Тогда сервис покажет ему на карте,
+где находится автомобиль.
+Не залогиненный пользователь просто видит доступные к броне автомобили, но не может их забронировать, пока не зарегистрируется.
+
+Ниже описаны объекты и классы данной информационной системы на неком псевдо-C++ языке.
+
+
+
+
+class CarService {
+  data {
+    Car cars;
+    User users;
+  };
+
+  interface {
+    self w method construct();
+    
+    visitor w method register();
+    visitor w method logIn();
+    visitor r method listCars();
+
+    user w method logOut();
+
+    admin w method addCar();
+    admin w method deleteCar();
+    client rw method takeCar();
+  };
+
+  roles {
+    Role self;
+    Role visitor;
+    Role user;
+    Role client;    
+    Role admin;
+  };
+};
+
+Roles graph:
+
+Role --> Self, Visitor;
+Visitor --> User;
+User --> Client, Admin;
+
+
+class Car {
+  Integer id;
+  String brand;
+  String model;
+  String photo_url;
+};
+
+class User {
+  Integer id;
+  String name;
+  Hash password;
+  Role role;
+};
+
+class Role {
+  Integer id;
+  String name;
+  Integer power;
+};
+
+
