@@ -1,0 +1,7 @@
+<ul id="carsList" class="crs-platform">
+  <li class="crs-car-preview" ng-repeat="car in $ctrl.cars">
+    <img ng-src="{{'img/' + car.photo + '.jpg'}}"/>
+    <div >{{car.brand + ' ' + car.model}}</div>
+  </li>
+</ul>
+    
