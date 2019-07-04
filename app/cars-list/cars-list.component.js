@@ -9,8 +9,26 @@ angular.module('carsList').component('carsList', {
 	'</li>' +
     '</ul>',
     
-    controller: function CarsListController() {
-	this.user_role = 0;
+    controller: function CarsListController($http, $SQLite) {
+
+	$SQLite.dbConfig({
+	    name: 'Cars.db',
+	    description: 'application light database',
+	    version:'1.0'
+	});
+
+	this.sym_key = sjcl.random.randomWords(8);
+
+	let separator = '-- delimiter';
+	let initdb_queries;
+	$http.get('database/initdb.sql').then(function(response) {
+	    initdb_queries = response.data.split(separator);
+	    for(let query of initdb_queries) {
+		$SQLite.execute(query);
+	    }	    
+	});
+
+    	
 	
 	this.cars = [
 	    {

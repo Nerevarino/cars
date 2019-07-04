@@ -1,11 +1,9 @@
--- PRAGMA key = 'Zk.,k.Lfie91';
-
 create table Roles (
   id integer primary key,
   name text
 );
 
-
+-- delimiter
 insert into Roles(name) values
   ('self'),
   ('visitor'),
@@ -14,6 +12,7 @@ insert into Roles(name) values
   ('admin')
 ;
 
+-- delimiter
 create table Users (
   id integer primary key,
   name text,
@@ -22,10 +21,12 @@ create table Users (
   FOREIGN KEY(roleId) REFERENCES Roles(id)  
 );
 
+-- delimiter
 insert into Users(name, passwd, roleId) values
   ('manager', 'Zk.,k.Lfie91', (select id from Roles where name='admin'))
 ;
 
+-- delimiter
 create table Interface (
   id integer primary key,
   method_name text,
@@ -34,11 +35,12 @@ create table Interface (
   foreign key(base_role) references Roles(id)
 );
 
+-- delimiter
 insert into Interface(method_name, method_command, base_role) values
   ('register', readfile('register.sql'), (select id from Roles where name='visitor'))
 ;
 
-
+-- delimiter
 create table Cars (
   id integer primary key,
   brand text,
@@ -46,6 +48,7 @@ create table Cars (
   photo text
 );
 
+-- delimiter
 insert into Cars(brand, model, photo) values
   ('Kia', 'Mohave', 'mohave'),
   ('Audi', 'Q7', 'q7'),
@@ -57,6 +60,7 @@ insert into Cars(brand, model, photo) values
   ('Nissan', 'Pathfinder', 'pathfinder')  
 ;
 
+-- delimiter
 create table Sessions (
   id integer primary key,
   userId integer,

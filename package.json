@@ -6,8 +6,9 @@
   "repository": "pserver:~/projects/web/cars",
   "license": "MIT",
   "dependencies": {
-      "angular": "^1.7.8",
-      "angular-sqlite": "0.1.0"
+    "angular": "^1.7.8",
+    "angular-sqlite": "0.1.0",
+    "sjcl": "1.0.8"
   },
   "devDependencies": {
     "angular-mocks": "1.7.x",
@@ -18,7 +19,7 @@
     "postinstall": "npm run copy-libs",
     "update-deps": "npm update",
     "postupdate-deps": "npm run copy-libs",
-    "copy-libs": "cpx \"node_modules/{angular,angular-*,bootstrap/dist}/**/*\" app/lib -C",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*,bootstrap,sjcl/dist}/**/*\" app/lib -C",
     "prestart": "npm install",
     "start": "http-server ./app -a localhost -p 8000 -c-1",
     "pretest": "npm install"
