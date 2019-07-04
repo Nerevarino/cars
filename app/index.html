@@ -3,20 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Cars offers</title>
-    <link rel="stylesheet" href="/app.css" />
-    <script src="/lib/angular/angular.js"></script>
-    <script src="/app.js"></script>
+    <link rel="stylesheet" href="app.css" />
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-sqlite/angular-sqlite.js"></script>
+    <script src="app.js"></script>
   </head>
   <body ng-controller="carsController">
     <div class="crs-bar">
+      user role = {{user_role}}
       <div class="crs-button">
-        <img class="crs-icon" src="/img/icons-svg/user-white.svg"/>
-	<div class="crs-label"> Вход</div>
+        <img class="crs-icon" src="img/icons-svg/user-white.svg"/>
+	<div class="crs-label">Вход</div>
       </div>
     </div>
 
     <ul id="carsList" class="crs-platform">
-      
+      <li class="crs-car-preview" ng-repeat="car in cars">
+        <img ng-src="{{'img/' + car.photo + '.jpg'}}"/>
+	<div >{{car.brand + ' ' + car.model}}</div>
+      </li>
     </ul>
   </body>
 </html>

@@ -6,7 +6,8 @@
   "repository": "pserver:~/projects/web/cars",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.7.8"
+      "angular": "^1.7.8",
+      "angular-sqlite": "0.1.0"
   },
   "devDependencies": {
     "angular-mocks": "1.7.x",

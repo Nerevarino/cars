@@ -66,10 +66,37 @@ body {
     background-color:grey;
 }
 
+.crs-car-preview {
+    padding:5px;
+    border-radius:5px;
+    background-color:#6699cc;
+
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:5px;
+}
+
+.crs-car-preview:last-child {
+    margin-bottom:0;
+}
+
+.crs-car-preview > img {
+    width:99%;
+    border-radius:3px;
+    margin-bottom:5px;
+}
+
+.crs-car-preview > div {
+    text-align:center;
+    padding:3px;
+    color:white;
+}
+
 #carsList {
     position:absolute;    
-    top:50px;
+    top:45px;
     left:5px;
     right:5px;
-    height:300px;
 }
