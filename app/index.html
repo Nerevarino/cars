@@ -6,16 +6,15 @@
     <link rel="stylesheet" href="app.css" />
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.min.js"></script>    
-    <script src="lib/angular-sqlite/angular-sqlite.js"></script>
     <script src="lib/sjcl/sjcl.js"></script>    
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>    
     <script src="cars-list/cars-list.module.js"></script>
     <script src="cars-list/cars-list.component.js"></script>
     <script src="log-in/log-in.module.js"></script>
-    <script src="log-in/log-in.component.js"></script>        
+    <script src="log-in/log-in.component.js"></script>
   </head>
-  <body ng-controller="AppController" ng-on-unload="$scope.truncateDB()">    
+  <body >    
     <div class="crs-view-container" ng-view></div>  
   </body>
 </html>

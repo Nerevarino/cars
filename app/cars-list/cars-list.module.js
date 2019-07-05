@@ -1,6 +1,6 @@
 'use strict';
 
-var carsListModule = angular.module('carsList', ['ngSQLite']);
+var carsListModule = angular.module('carsList', []);
 
 
 

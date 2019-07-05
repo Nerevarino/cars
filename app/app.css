@@ -16,6 +16,10 @@ input {
     font-size:16px;
 }
 
+a {
+    text-decoration:none;
+}
+
 .crs-view-container {
     background-color:#99ccff;
 }
@@ -44,6 +48,10 @@ input {
     align-items:center;
     
     background-color:#bfbfbf;
+}
+
+.crs-current-user {
+    margin-right:10px;
 }
 
 .crs-label {
@@ -93,6 +101,10 @@ input {
     margin-bottom:5px;
 }
 
+/* .crs-car-preview:hover { */
+/*     background-color:#9fbfdf;     */
+/* } */
+
 .crs-car-preview:last-child {
     margin-bottom:0;
 }
@@ -107,6 +119,24 @@ input {
     text-align:center;
     padding:3px;
     color:white;
+    font-size:22px;
+}
+
+.crs-car-preview > a {
+    text-align:center;
+    padding:3px;
+    background-color:#ccff99;
+    border-radius:5px;
+    font-size:20px;
+}
+
+.crs-car-preview > a:hover {
+    background-color:#e6ffcc;    
+}
+
+.crs-car-preview > form > .crs-button {
+    margin-left:10px;
+    margin-right:10px;
 }
 
 .crs-login-form {
@@ -127,8 +157,5 @@ input {
 }
 
 #loginPlatform {
-    position:absolute;
-    top:10px;
-    left:0;
-    right:0;
+    /* width:100%; */
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-var logInModule = angular.module('logIn', ['ngSQLite']);
+var logInModule = angular.module('logIn', []);
 
 
 

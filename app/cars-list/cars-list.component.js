@@ -3,36 +3,42 @@
 angular.module('carsList').component('carsList', {
     templateUrl:'cars-list/cars-list.template.html',
     
-    controller: function CarsListController($http, $SQLite) {
+    controller: function CarsListController($http) {
 
-	var $this = this;
+	var self = this;
 
-	this.queries = {};
+	const visitorRoleId = 0;
+	const adminRoleId = 1;
 
-	this.initDB = function() {
-	    $SQLite.dbConfig({
-		name: 'Cars.db',
-		description: 'application light database',
-		version:'1.0'
-	    });
-	    
-	    $this.queries.list_cars = `select brand, model, photo from Cars;`;
+
+	this.newLocation = '';
+	this.changeLocation = function(carId) {
+	    self.db.cars[carId].location = self.newLocation;
+	    sessionStorage.mdb = JSON.stringify(self.db);
+	    self.newLocation = '';
 	};
 	
-
-	this.listCars = function() {
-	    $SQLite.execute($this.queries.list_cars).then(function(data){
-		$this.cars = [];
-		for(let row of data.rows) {
-		    $this.cars.push(row);
-		}
-	    });
-	};
-	
-	this.init = function() {
-	    $this.initDB();
-	};
-	
-	this.init();	
+	if(sessionStorage.used) {
+	    self.db = JSON.parse(sessionStorage.mdb);
+	    self.roleId = sessionStorage.roleId;
+	    self.roleName = sessionStorage.roleName;
+	    if(sessionStorage.locationFormsCount > 0) {
+		self.locationForms = [{}];		
+	    } else {
+		self.locationForms = [];				
+	    }
+	} else {
+	    $http.get('database/cars.db').then(function(response) {	   
+		sessionStorage.mdb = JSON.stringify(response.data);
+		sessionStorage.used = true;		
+		self.db = JSON.parse(sessionStorage.mdb);
+		self.roleId = visitorRoleId;
+		self.roleName = self.db.roles[self.roleId].name;
+		sessionStorage.locationFormsCount = 0;
+		self.locationForms = [];
+		sessionStorage.roleId = self.roleId;
+		sessionStorage.roleName = self.roleName;				
+	    });	    
+	}
     }
 });

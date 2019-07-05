@@ -1,77 +1,48 @@
 {
-  "_args": [
-    [
-      "angular-sqlite@0.1.0",
-      "/home/evgeniy/projects/web/cars"
-    ]
-  ],
   "_from": "angular-sqlite@0.1.0",
   "_id": "angular-sqlite@0.1.0",
-  "_inCache": true,
-  "_installable": true,
+  "_inBundle": false,
+  "_integrity": "sha1-P2nvoaqWs1q7VovC2huAhsH1cDg=",
   "_location": "/angular-sqlite",
-  "_nodeVersion": "5.9.1",
-  "_npmOperationalInternal": {
-    "host": "packages-16-east.internal.npmjs.com",
-    "tmp": "tmp/angular-sqlite-0.1.0.tgz_1462043937667_0.6788192251697183"
-  },
-  "_npmUser": {
-    "email": "eduardo.cuomo.ar@gmail.com",
-    "name": "reduardo7"
-  },
-  "_npmVersion": "3.7.3",
   "_phantomChildren": {},
   "_requested": {
-    "name": "angular-sqlite",
+    "type": "version",
+    "registry": true,
     "raw": "angular-sqlite@0.1.0",
+    "name": "angular-sqlite",
+    "escapedName": "angular-sqlite",
     "rawSpec": "0.1.0",
-    "scope": null,
-    "spec": "0.1.0",
-    "type": "version"
+    "saveSpec": null,
+    "fetchSpec": "0.1.0"
   },
   "_requiredBy": [
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/angular-sqlite/-/angular-sqlite-0.1.0.tgz",
   "_shasum": "3f69efa1aa96b35abb568bc2da1b8086c1f57038",
-  "_shrinkwrap": null,
   "_spec": "angular-sqlite@0.1.0",
   "_where": "/home/evgeniy/projects/web/cars",
   "author": {
-    "email": "eduardo.cuomo.ar+github.angular-sqlite@gmail.com",
-    "name": "Eduardo Daniel Cuomo"
+    "name": "Eduardo Daniel Cuomo",
+    "email": "eduardo.cuomo.ar+github.angular-sqlite@gmail.com"
   },
   "bugs": {
     "url": "https://github.com/reduardo7/angular-sqlite/issues"
   },
-  "dependencies": {},
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "AngularJS SQLite module",
-  "devDependencies": {},
-  "directories": {},
-  "dist": {
-    "shasum": "3f69efa1aa96b35abb568bc2da1b8086c1f57038",
-    "tarball": "https://registry.npmjs.org/angular-sqlite/-/angular-sqlite-0.1.0.tgz"
-  },
-  "gitHead": "2c53d8d617e8a3891a8628741ce65b1be21fc3b6",
   "homepage": "http://eduardocuomo.com.ar",
   "keywords": [
     "angular",
-    "browser",
-    "client-side",
     "framework",
-    "sqlite"
+    "browser",
+    "sqlite",
+    "client-side"
   ],
   "license": "MIT",
   "main": "index.js",
-  "maintainers": [
-    {
-      "name": "reduardo7",
-      "email": "eduardo.cuomo.ar@gmail.com"
-    }
-  ],
   "name": "angular-sqlite",
-  "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reduardo7/angular-sqlite.git"

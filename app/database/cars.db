@@ -1,0 +1,87 @@
+{
+    "roles": [
+	{
+	    "id":0,
+	    "name":"Посетитель"
+	},
+	{
+	    "id":1,
+	    "name":"Администратор"
+	}      
+    ],
+
+    "users": [
+	{
+	    "id": 0,
+	    "name": "manager",
+	    "passwd": "myadminpassword",
+	    "roleId": 1
+	}
+    ],
+
+    "cars": [
+	{
+	    "id": 0,
+	    "brand": "Kia",
+	    "model": "Mohave",
+	    "photo": "mohave",
+	    "location": "https://yandex.ru/maps/-/CCgReG~2"
+	},
+
+	{
+	    "id": 1,
+	    "brand": "Audi",
+	    "model": "Q7",
+	    "photo": "q7",
+	    "location": "https://yandex.ru/maps/-/CCgReLzm"	    
+	},
+
+	{
+	    "id": 2,
+	    "brand": "BMW",
+	    "model": "X5",
+	    "photo": "x5",
+	    "location": "https://yandex.ru/maps/-/CCgRe-7p"
+	},
+
+	{
+	    "id": 3,
+	    "brand": "Chevrolet",
+	    "model": "Tahoe",
+	    "photo": "tahoe",
+	    "location": "https://yandex.ru/maps/-/CCgRiQ0G"
+	},
+
+	{
+	    "id": 4,
+	    "brand": "Mitsubishi",
+	    "model": "Outlander",
+	    "photo": "outlander",
+	    "location": "https://yandex.ru/maps/-/CCgRiK4T"
+	},
+
+	{
+	    "id": 5,
+	    "brand": "Toyota",
+	    "model": "Land Cruiser 200",
+	    "photo": "cruiser200",
+	    "location": "https://yandex.ru/maps/-/CCgRiSy-"
+	},
+
+	{
+	    "id": 6,
+	    "brand": "Renault",
+	    "model": "Duster",
+	    "photo": "duster",
+	    "location": "https://yandex.ru/maps/-/CCgRi8-F"
+	},	
+
+	{
+	    "id": 7,
+	    "brand": "Nissan",
+	    "model": "Pathfinder",
+	    "photo": "pathfinder",
+	    "location": "https://yandex.ru/maps/-/CCgRiT7M"
+	}	
+    ]    
+}

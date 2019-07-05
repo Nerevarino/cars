@@ -1,33 +1,37 @@
 'use strict';
 
-angular.module('logIn').component('logIn', {
+angular.module('logIn').component('logIn',  {
     templateUrl:'log-in/log-in.template.html',
     
-    controller: function LogInController($http, $SQLite) {
+    controller: function LogInController($http) {
 
-	var $this = this;
+	var self = this;
 
 	this.username = '';
 	this.password = '';
 	this.message = '';
 
-
-	this.initDB = function() {
-	    $SQLite.dbConfig({
-		name: 'Cars.db',
-		description: 'application light database',
-		version:'1.0'
-	    });	    
-	};
+	this.db = JSON.parse(sessionStorage.mdb);
+	this.roleId = sessionStorage.roleId;
+	this.roleName = sessionStorage.roleName;
 
 	this.tryLogin = function() {
-	    $SQLite.execute('select * from Users;').then(function(data) {
-		for(let row of data.rows) {
-		    console.log(row);
+	    for(let user of self.db.users) {
+		if(self.username == user.name) {
+		    if(self.password == user.passwd) {
+			sessionStorage.roleId = user.roleId;
+			sessionStorage.roleName = self.db.roles[user.roleId].name;
+			sessionStorage.locationFormsCount = 1;
+			window.location.href = '/#!/cars';
+		    } else {
+			self.message = 'Неверный логин/пароль';
+			return;
+		    }
+		} else {
+		    self.message = 'Неверный логин/пароль';
+		    return;
 		}
-	    });
+	    }
 	};
-
-	this.initDB();
     }
 });

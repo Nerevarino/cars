@@ -4,7 +4,7 @@ angular.module('carsApp').config([
       $routeProvider.
 	when('/cars', {
           template: '<cars-list></cars-list>'
-        }).        
+        }).
         when('/login', {
           template: '<log-in></log-in>'
         }).
