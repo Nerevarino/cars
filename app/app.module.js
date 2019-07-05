@@ -1,5 +1,8 @@
 'use strict';
 
 angular.module('carsApp', [
-    'carsList'
+    'ngRoute',
+    'carsList',
+    'logIn'
 ]);
+

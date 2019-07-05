@@ -1,0 +1,12 @@
+<div id="loginPlatform" class="crs-platform">
+  <form class="crs-login-form">
+    <label class="crs-label" for="uname"><b>Логин</b></label>
+    <input ng-model="$ctrl.username" type="text" placeholder="Введите имя" name="uname" required>
+    <label class="crs-label" for="upasswd"><b>Пароль</b></label>
+    <input ng-model="$ctrl.password" type="password" placeholder="Введите пароль" name="upasswd" required>
+    <div class="crs-button" ng-click="$ctrl.tryLogin()">
+      <div class="crs-label">Войти</div>
+    </div>    
+    <div >{{$ctrl.username}} {{$ctrl.password}}</div>
+  </form>
+</div>  
