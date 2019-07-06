@@ -5,17 +5,32 @@ angular.module('logIn').component('logIn',  {
     
     controller: function LogInController($http) {
 
-	var self = this;
+	var self = this;  //для доступа к контроллеру из внутренних замыканий
 
-	this.username = '';
-	this.password = '';
-	this.message = '';
+	this.username = '';      //модель введенного посетителем имя пользователя
+	this.password = '';      //модель введенного посетителем пароля пользователя 
+	this.message = '';       //модель сообщения посетителю в зависимости от результата проверки логина и пароля
 
-	this.db = JSON.parse(sessionStorage.mdb);
-	this.roleId = sessionStorage.roleId;
-	this.roleName = sessionStorage.roleName;
+	this.restoreDBKey = function() {
+	    self.symKey = JSON.parse(sessionStorage.symKey);
+	};	
+	this.getDB = function() {
+	    self.db = JSON.parse(sjcl.decrypt(self.symKey,sessionStorage.mdb));	    
+	};
 
-	this.tryLogin = function() {
+	this.getRoleParams = function() {
+	    this.roleId = sessionStorage.roleId;
+	    this.roleName = sessionStorage.roleName;	    
+	}
+
+	this.onCreateComponent = function() {    //вызывается всегда при создании/пересоздании этого контроллера компонента
+	    self.restoreDBKey();
+	    self.getDB();
+	    self.getRoleParams();
+	};
+	
+
+	this.tryLogin = function() {     //функция - внешний интерфейс контроллера - обработчик попытки входа под пользователем с паролем
 	    for(let user of self.db.users) {
 		if(self.username == user.name) {
 		    if(self.password == user.passwd) {
@@ -33,5 +48,7 @@ angular.module('logIn').component('logIn',  {
 		}
 	    }
 	};
+
+	this.onCreateComponent();
     }
 });

@@ -12,7 +12,7 @@
     <div >{{car.brand + ' ' + car.model}}</div>
     <a href="{{car.location}}">Показать на карте</a>
     <form ng-repeat="form in $ctrl.locationForms">
-      <input ng-model="$ctrl.newLocation" type="text" placeholder="Введите новую позицию" name="uname" required>
+      <input ng-model="$ctrl.newCarLocation" type="text" placeholder="Введите новую позицию" name="uname" required>
       <div class="crs-button" ng-click="$ctrl.changeLocation(car.id)">
 	<div class="crs-label">Записать позицию</div>
       </div>                        
