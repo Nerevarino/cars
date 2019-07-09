@@ -9,8 +9,11 @@ angular.module('carsList').component('carsList', {
 
 	const visitorRoleId = 0;
 	const adminRoleId = 1;
+	const visitorRoleName = 'Посетитель';
 
-	this.newCarLocation = '';   //Здесь содержится ссылка на новую позицию машины в Яндекс Картах   
+	this.newCarLocation = '';   //Здесь содержится ссылка на новую позицию машины в Яндекс Картах
+	this.loginActions =[];
+	this.logoutActions =[];	
 
 
 	
@@ -42,7 +45,8 @@ angular.module('carsList').component('carsList', {
 	    //ниже переменные для отключения ввода нового местоположения машины в случае не администраторской роли
 	    //изначально выдается роль посетителя до залогинивания под учетку администратора
 	    sessionStorage.locationFormsCount = 0;   
-	    self.locationForms = [];	    
+	    self.locationForms = [];
+	    self.loginActions.push({});	    
 	};
 	this.restoreRoleParams = function() {   
 	    self.roleId = sessionStorage.roleId;
@@ -51,6 +55,13 @@ angular.module('carsList').component('carsList', {
 		self.locationForms = [{}];		
 	    } else {
 		self.locationForms = [];				
+	    }
+	    if(self.roleId == visitorRoleId) {
+		self.loginActions.push({});
+	    } else if (self.roleId == adminRoleId) {
+		self.logoutActions.push({});
+	    } else {
+		self.loginActions.push({});
 	    }
 	};
 	
@@ -73,6 +84,12 @@ angular.module('carsList').component('carsList', {
 	    self.db.cars[carId].location = self.newCarLocation;
 	    sessionStorage.mdb = sjcl.encrypt(self.symKey, JSON.stringify(self.db));	    
 	    self.newCarLocation = '';
+	};
+
+	this.logOut = function() {
+	    sessionStorage.roleId = visitorRoleId;
+	    sessionStorage.roleName = visitorRoleName;
+	    sessionStorage.locationFormsCount = 0;	    
 	};
 	
 

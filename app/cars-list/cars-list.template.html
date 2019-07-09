@@ -1,8 +1,12 @@
 <div class="crs-bar">
   <div class="crs-current-user">{{$ctrl.roleName}}</div>
-  <a class="crs-button" href="#!/login">
+  <a class="crs-button" href="#!/login" ng-repeat="login in $ctrl.loginActions">
     <img class="crs-icon" src="img/icons-svg/user-white.svg"/>
     <div class="crs-label">Вход</div>
+  </a>
+  <a class="crs-button" href="#!/logout" ng-repeat="logout in $ctrl.logoutActions" ng-click="$ctrl.logOut()">
+    <img class="crs-icon" src="img/icons-svg/user-white.svg"/>
+    <div class="crs-label">Выход</div>
   </a>
 </div>
 
