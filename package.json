@@ -6,7 +6,7 @@
   "repository": "pserver:~/projects/web/cars",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.7.8",
+    "angular": "^1.7.9",
     "angular-route": "1.7.x",
     "angular-sqlite": "0.1.0",
     "sjcl": "1.0.8"
